@@ -67,7 +67,7 @@
 		<a href="{{route('home')}}" class="btn btn-primary">
 			<i class="fa fa-chevron-circle left">Keep buying</i>
 		</a>
-		<a href="{{route('home')}}" class="btn btn-primary">
+		<a href="{{route('order-detail')}}" class="btn btn-primary">
 			<i class="fa fa-chevron-circle right">Pay</i>
 		</a>
 	</p>

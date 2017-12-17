@@ -1,7 +1,5 @@
 <?php
-
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Eloquent\Model;
 use App\Category;
 class CategoryTableSeeder extends Seeder
 {
@@ -12,21 +10,20 @@ class CategoryTableSeeder extends Seeder
      */
     public function run()
     {
-       $data= array(
-        [
-        'name'=>'Jeep',
-        'slug' =>'Jeep',
-        'description'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut facilisis urna, ut aliquam nibh.',
-        'color'=>'#440022'
-        ],
-        [
-            'name'=>'Ford',
-            'slug' =>'Ford',
-            'description'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            'color'=>'#445500'
-        ]
-    );
-
-       Category::insert($data);
+        $data = array(
+            [
+                'name' => 'jeep', 
+                'slug' => 'jeep', 
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, perferendis!', 
+                'color' => '#440022'
+            ],
+            [
+                'name' => 'ford', 
+                'slug' => 'ford', 
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, perferendis!', 
+                'color' => '#445500'
+            ]
+        );
+        Category::insert($data);
     }
 }

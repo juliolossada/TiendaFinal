@@ -90,4 +90,11 @@ padding:1em;
 .table-cart img{
 	width: 50px;
 }
+.page{
+	background: #FFF;
+	border-radius: 1em;
+	margin-bottom: 30px;
+	padding: 1em;
+
+}
 

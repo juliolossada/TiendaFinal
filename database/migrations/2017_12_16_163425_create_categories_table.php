@@ -1,8 +1,6 @@
 <?php
-
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
 class CreateCategoriesTable extends Migration
 {
     /**
@@ -12,17 +10,16 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('categories', function(Blueprint $table)
+        {
             $table->increments('id');
-            $table->string('name',255);
+            $table->string('name', 255)->unique();
             $table->string('slug');
             $table->text('description');
-            $table->string('color');
+            $table->string('color', 30);
             //$table->timestamps();
-
         });
     }
-
     /**
      * Reverse the migrations.
      *
