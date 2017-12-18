@@ -69,3 +69,15 @@ Route::post('auth/register', [
 	'as' => 'register-post',
 	'uses' => 'Auth\AuthController@postRegister'
 ]);
+
+//paypal
+//envio de info
+Route::get ('payment', array(
+	'as' =>'payment',
+	'uses'=>'PaypalController@postPayment',
+));
+//paypal redirecciona a esta ruta
+Route::get('payment/status', array(
+	'as' => 'payment.status',
+	'uses'=> 'PaypalController@getPaymentStatus'
+));

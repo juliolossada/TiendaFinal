@@ -9,6 +9,9 @@
 	<link rel="stylesheet" href="{{asset('css/main.css')}}">
 </head>
 <body>
+	@if(\Session::has('message'))
+		@include('store.partials.message')
+		@endif
 	@include('store.partials.nav')
 
 	@yield('content')
