@@ -12,6 +12,10 @@
 Route::bind('product', function($slug){
 	return App\Product::where('slug', $slug)->first();
 });
+Route::bind('category', function($category){
+	return App\Category::find($category);
+
+});
 
 Route::get('/', [
 	'as' => 'home',
@@ -81,3 +85,14 @@ Route::get('payment/status', array(
 	'as' => 'payment.status',
 	'uses'=> 'PaypalController@getPaymentStatus'
 ));
+
+//Admin
+
+Route::get('admin/home',function(){
+
+	return view('admin.home');
+});
+
+Route::resource('admin/category','Admin\CategoryController');
+
+Route::resource('admin/product','Admin\ProductController');

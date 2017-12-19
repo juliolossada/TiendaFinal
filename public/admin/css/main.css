@@ -1,0 +1,44 @@
+body
+{
+    background:#f0f0f0;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1
+{
+    color:#80bfff;
+}
+
+h2,h3,h4,h5,h6
+{
+    color:#07070761;
+    /*font-family: 'Lobster', cursive;*/
+}
+
+footer
+{
+    background:#222;
+    padding:20px;
+}
+
+.page
+{
+    background:#fff;
+    border-radius:1em;
+    margin:1em;
+    min-height:500px;
+    padding:1em;
+}
+
+
+.icon-home
+{
+    color: #666;
+    font-size: 60px;
+    margin: 20px;
+}
+
+.btn-home-admin
+{
+    font-size:25px;
+}

@@ -13,7 +13,7 @@ class UserTableSeeder extends Seeder
         $data = array(
 			[
 				'name' 		=> 'Julio', 
-				'last_name' => 'Lossad', 
+				'last_name' => 'Lossada', 
 				'email' 	=> 'HOla@gmail.com', 
 				'user' 		=> 'Lossada',
 				'password' 	=> \Hash::make('123456'),
