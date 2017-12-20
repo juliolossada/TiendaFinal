@@ -5,6 +5,8 @@
 		</a>
 		<ul class="dropdown-menu" role="menu">
 			<li><a href="{{ route('logout') }}">Finalizar sesión</a></li>
+			<li><a href="{{route('settings')}}">Settings</a></li>
+
 		</ul>
 	</li>
 @else
@@ -14,7 +16,7 @@
 		</a>
 		<ul class="dropdown-menu" role="menu">
 			<li><a href="{{ route('login-get') }}">Iniciar sesión</a></li>
-			<li><a href="{{ route('register-get') }}">Registrarse</a></li>
+			<li><a href="#">Registrarse</a></li>
 		</ul>
 	</li>
 @endif

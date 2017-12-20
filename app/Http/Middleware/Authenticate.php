@@ -1,10 +1,7 @@
 <?php
-
 namespace App\Http\Middleware;
-
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
-
 class Authenticate
 {
     /**
@@ -13,9 +10,8 @@ class Authenticate
      * @var Guard
      */
     protected $auth;
-
     /**
-     * Create a new middleware instance.
+     * Create a new filter instance.
      *
      * @param  Guard  $auth
      * @return void
@@ -24,7 +20,6 @@ class Authenticate
     {
         $this->auth = $auth;
     }
-
     /**
      * Handle an incoming request.
      *
@@ -41,7 +36,12 @@ class Authenticate
                 return redirect()->guest('auth/login');
             }
         }
-
+        if($request->path() == 'order-detail') return $next($request);
+        
+        if(auth()->user()->type != 'admin'){
+            $message = 'Permiso denegado: Solo los administradores pueden entrar a esta sección';
+            return redirect()->route('home')->with('message', $message);
+        }
         return $next($request);
     }
 }

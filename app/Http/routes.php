@@ -12,15 +12,19 @@
 Route::bind('product', function($slug){
 	return App\Product::where('slug', $slug)->first();
 });
+// Category dependency injection
 Route::bind('category', function($category){
-	return App\Category::find($category);
-
+    return App\Category::find($category);
 });
-
+// User dependency injection
+Route::bind('user', function($user){
+    return App\User::find($user);
+});
 Route::get('/', [
 	'as' => 'home',
 	'uses' => 'StoreController@index'
 ]);
+
 Route::get('product/{slug}', [
 	'as' => 'product-detail',
 	'uses' => 'StoreController@show'
@@ -73,26 +77,42 @@ Route::post('auth/register', [
 	'as' => 'register-post',
 	'uses' => 'Auth\AuthController@postRegister'
 ]);
-
-//paypal
-//envio de info
-Route::get ('payment', array(
-	'as' =>'payment',
-	'uses'=>'PaypalController@postPayment',
+// Paypal
+// Enviamos nuestro pedido a PayPal
+Route::get('payment', array(
+	'as' => 'payment',
+	'uses' => 'PaypalController@postPayment',
 ));
-//paypal redirecciona a esta ruta
+// Después de realizar el pago Paypal redirecciona a esta ruta
 Route::get('payment/status', array(
 	'as' => 'payment.status',
-	'uses'=> 'PaypalController@getPaymentStatus'
+	'uses' => 'PaypalController@getPaymentStatus',
 ));
 
-//Admin
+// ADMIN -------------
+Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'admin'], function()
+{
+	Route::get('home', ['as' => 'settings', function () {	
 
-Route::get('admin/home',function(){
+		return view('admin.home');
+	}]);
 
-	return view('admin.home');
+	Route::resource('category', 'CategoryController');
+
+	Route::resource('product', 'ProductController');
+
+	Route::resource('user', 'UserController');
+	
+	Route::get('orders', [
+		'as' => 'admin.order.index',
+		'uses' => 'OrderController@index'
+	]);
+	Route::post('order/get-items', [
+	    'as' => 'admin.order.getItems',
+	    'uses' => 'OrderController@getItems'
+	]);
+	Route::post('order/{id}', [
+	    'as' => 'admin.order.destroy',
+	    'uses' => 'OrderController@destroy'
+	]);
 });
-
-Route::resource('admin/category','Admin\CategoryController');
-
-Route::resource('admin/product','Admin\ProductController');

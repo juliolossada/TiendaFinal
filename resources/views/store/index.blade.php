@@ -21,5 +21,6 @@
 			</div>
 		@endforeach
 	</div>
+	<?php echo $products->render(); ?>
 </div>
 @stop

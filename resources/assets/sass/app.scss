@@ -1,3 +1,117 @@
-// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "colors";
 
-h1{background-color: blue;}
+body {
+  background: $color-background;
+  font-family: 'Roboto', sans-serif;
+}
+
+/*NAV*/
+
+.navbar-brand {
+  color: $color-2 !important;
+  font-size: 26px;
+  padding: 0;
+}
+
+.navbar-text {
+  font-size: 20px;
+}
+
+#logo {
+  padding-left: 5px;
+  padding-bottom: 10px;
+  padding-top: 2px;
+  width: 60px;
+  height: 60px;
+}
+
+/*Catalogo*/
+
+#products {
+  position: relative;
+  max-width: 100%;
+  width: 100%;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.white-panel {
+  position: absolute;
+  background: white;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  h1 {
+    font-size: 1em;
+    a {
+      color: #A92733;
+    }
+  }
+  &:hover {
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+    margin-top: -5px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+/*FOOTER*/
+
+footer {
+  background: $color-footer;
+  text-align: center;
+  p {
+    text-align: justify;
+  }
+}
+
+ul.redes li {
+  display: inline-block;
+  a {
+    color: $color-background;
+  }
+}
+
+.avatar {
+  border: 5px solid $color-background;
+  border-radius: 50%;
+  float: left;
+  height: 100px;
+  width: 100px;
+}
+
+/* detalle producto*/
+
+.product-block {
+  background: $color-cart-back;
+  border-radius: 1em;
+  padding: 1em;
+}
+
+/* carusel*/
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.table-cart {
+  background: $color-cart-back;
+  border-radius: 1em;
+  margin-bottom: 30px;
+  padding: 1em;
+  img {
+    width: 50px;
+  }
+}
+
+.page {
+  background: $color-cart-back;
+  border-radius: 1em;
+  margin-bottom: 30px;
+  padding: 1em;
+}

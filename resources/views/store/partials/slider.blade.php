@@ -9,25 +9,23 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <img src="https://www.breakerlink.com/blog/wp-content/uploads/2015/02/car-parts-montage-original.jpg">
+      <img src="https://assets.metrolatam.com/pr/2013/03/07/mecanica10-1600x800.jpg" height="100">
       <div class="carousel-caption">
-        Bobina
       </div>
     </div>
     <div class="item">
-      <img src="https://easilyfixed.co.uk/wp-content/uploads/Breaking-Car-For-Parts-Jaguar-Xf-Breakers-and-Salvage-Dealers-Skelmersdale-Lancashire-Area-Engine-View.jpg">
+      <img src="https://assets.metrolatam.com/pr/2013/03/07/mecanica7-1600x800.jpg">
       <div class="carousel-caption">
         Kit
       </div>
     </div>
     <div class="item">
-      <img src="https://i.pinimg.com/originals/30/ec/b7/30ecb7938454b6bef709cc05561f71a2.jpg">
-      <div class="carousel-caption">
+      <img src="https://assets.metrolatam.com/gt/2016/12/24/revisar-auto-1-1600x800.jpg">
         Piston
       </div>
     </div>
    
-  </div>
+  
 
   <!-- Controls -->
   <a class="left carousel-control" href="#carrusel" role="button" data-slide="prev">
@@ -40,3 +38,5 @@
   </a>
 </div>
 <hr>
+
+</div>

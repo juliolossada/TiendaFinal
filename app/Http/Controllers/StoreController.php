@@ -11,9 +11,13 @@ class StoreController extends Controller
 {
     public function index()
     {
-    	$products = Product::all();
-    	//dd($products);
+    	$products = Product::orderBy('id', 'desc')->paginate(4);
+
     	return view('store.index', compact('products'));
+
+
+
+        
     }
 
     public function show($slug)

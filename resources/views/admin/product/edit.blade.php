@@ -6,7 +6,7 @@
 		<div class="page-header">
 			<h1>
 				<i class="fa fa-shopping-cart"></i>
-				PRODUCTOS <small>[Agregar producto]</small>
+				PRODUCTOS <small>[Editar producto]</small>
 			</h1>
 		</div>
 
@@ -19,7 +19,7 @@
                         @include('admin.partials.errors')
                     @endif
                     
-                    {!! Form::open(['route'=>'admin.product.store']) !!}
+                    {!! Form::open(['route'=>'admin.product.update', $product->slug]) !!}
                     
                         <div class="form-group">
                             <label class="control-label" for="category_id">Categoría</label>
@@ -103,16 +103,7 @@
                         
                         <div class="form-group">
                             <label for="visible">Visible:</label>
-                            
-                            {!! 
-                                Form::checkbox(
-                                    'visible', 
-                                    null, 
-                                    array(
-                                        'class'=>'form-control',
-                                    )
-                                ) 
-                            !!}
+                            <input type="checkbox" name="visible"{{$product->visible == 1 ? "checked='checked'" : ''}}>
                         </div>
                         
                         <div class="form-group">

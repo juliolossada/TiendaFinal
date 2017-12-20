@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SaveProductRequest;
 use App\Product;
 use App\Category;
 
@@ -41,9 +42,24 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SaveProductRequest $request)
     {
-        //
+        $data=[
+            'name'=>                $request->get('name'),
+            'slug'=>       str_slug($request->get('name')),
+            'description'=>         $request->get('description'),
+            'extract' =>            $request->get('extract'),
+            'price'=>               $request->get('image'),
+            'visible'=>             $request->has('visible') ? 1 : 0,
+            'category_id'=>         $request->get('category_id')
+
+        ];
+
+        $product = Product::create($data);
+
+        $message = $product ? 'Producto agregado correctamente' : 'Error no se pudo agregar';
+
+        return redirect()->route('admin.product.index')->with('message', $message);
     }
 
     /**
@@ -52,9 +68,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Product $product)
+
     {
-        //
+        return $product;   
     }
 
     /**
@@ -63,10 +80,13 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Product $product)
     {
-        //
-    }
+        $categories = Category::orderBy('id','desc')->lists('name','id');
+
+        return view('admin.product.edit', compact('categories','product'));
+
+            }
 
     /**
      * Update the specified resource in storage.
@@ -75,9 +95,17 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SaveProductRequest $request,Product $product)
     {
-        //
+        $product->fill($request->all());
+        $product->slug=str_slug($request->get('name'));
+        $product->visible =$request->has('visible') ? 1 : 0;
+
+        $update = $product->save();
+
+        $message = $update ? 'Producto actualizado' : 'Producto no actualizado';
+
+        return redirect()->route('admin.product.index')->with('message', $message);
     }
 
     /**
@@ -86,8 +114,12 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        //
+        $deleted = $product->delete();
+
+        $message = $deleted ? 'Producto eliminado con exito' : 'Error al eliminar producto';
+
+        return redirect()->route('admin.product.index')->with('message', $message);
     }
 }

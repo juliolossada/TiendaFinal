@@ -1,1 +1,1 @@
-register.blade
+register
