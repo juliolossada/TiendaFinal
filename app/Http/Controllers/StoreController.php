@@ -11,10 +11,9 @@ class StoreController extends Controller
 {
     public function index()
     {
-    	$products = Product::orderBy('id', 'desc')->paginate(4);
+        $products = Product::orderBy('id', 'desc')->paginate(4);
 
-    	return view('store.index', compact('products'));
-
+        return view('store.index', compact('products'));
 
 
         
@@ -22,8 +21,8 @@ class StoreController extends Controller
 
     public function show($slug)
     {
-    	$product = Product::where('slug', $slug)->first();
+        $product = Product::where('slug', $slug)->first();
 
-    	return view('store.show', compact('product'));
+        return view('store.show', compact('product'));
     }
 }

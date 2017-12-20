@@ -21,6 +21,7 @@
                     
                     {!! Form::open(['route'=>'admin.product.update', $product->slug]) !!}
                     
+                    <input type="hidden" name="_method" value="PUT">
                         <div class="form-group">
                             <label class="control-label" for="category_id">Categoría</label>
                             {!! Form::select('category_id', $categories, null, ['class' => 'form-control']) !!}

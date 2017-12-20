@@ -16,7 +16,6 @@
 		</a>
 		<ul class="dropdown-menu" role="menu">
 			<li><a href="{{ route('login-get') }}">Iniciar sesión</a></li>
-			<li><a href="#">Registrarse</a></li>
 		</ul>
 	</li>
 @endif
